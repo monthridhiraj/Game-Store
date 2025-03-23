@@ -2,20 +2,6 @@ Game Store E-commerce Platform
 
 A modern gaming e-commerce platform built with vanilla JavaScript, featuring a responsive design and simulated payment system.
 
-📁 Folder / 📄 File	📌 Description
-game-store/	Root directory of the project
-├── frontend/	Contains all frontend-related files
-│ ├── index.html	🏠 Home page with game listings
-│ ├── cart.html	🛒 Shopping cart page
-│ ├── login.html	🔑 Login/Signup page
-│ ├── css/	🎨 Contains stylesheets
-│ │ └── style.css	Main CSS file (using Tailwind CSS)
-│ ├── js/	⚙️ Contains JavaScript files
-│ │ └── utils.js	Utility functions
-│ ├── images/	🖼️ Stores game images
-│ │ ├── game1.jpg	Game image 1
-│ │ ├── game2.jpg	Game image 2
-└── README.md	📖 Project documentation
 
 Features
 
