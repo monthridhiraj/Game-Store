@@ -193,6 +193,22 @@
         }, 2000);
     }
 
+    function checkLoginStatus() {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (!currentUser) {
+            const cartLink = document.querySelector('a[href="/cart.html"]');
+            if (cartLink) {
+                cartLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showNotification('Please login to view cart', true);
+                    setTimeout(() => {
+                        window.location.href = '/login.html';
+                    }, 1500);
+                });
+            }
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
         const cartCount = document.getElementById('cart-count');
@@ -200,6 +216,7 @@
         cartCount.textContent = totalItems;
         loadGames();
         updateUserSection();
+        checkLoginStatus();
     });
     </script>
 </body>
