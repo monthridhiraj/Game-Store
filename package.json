@@ -1,0 +1,13 @@
+{
+  "name": "gamestore",
+  "version": "1.0.0",
+  "description": "A game store application",
+  "scripts": {
+    "start:frontend": "cd frontend && npm start",
+    "start:backend": "cd backend && npm start",
+    "dev:backend": "cd backend && npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+} 
