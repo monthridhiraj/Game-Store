@@ -109,8 +109,13 @@
             // Store logged in user
             localStorage.setItem('currentUser', JSON.stringify(user));
             showNotification('Login successful!');
+            
+            // Check if there's a redirect URL in the query params
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirect = urlParams.get('redirect');
+            
             setTimeout(() => {
-                window.location.href = '/';
+                window.location.href = redirect || '/';
             }, 1500);
         } else {
             showNotification('Invalid email or password', true);
@@ -124,25 +129,24 @@
         const email = document.getElementById('signupEmail').value;
         const password = document.getElementById('signupPassword').value;
 
-        // Get stored users
         const users = JSON.parse(localStorage.getItem('users') || '[]');
         
-        // Check if email already exists
         if (users.some(u => u.email === email)) {
             showNotification('Email already registered', true);
             return;
         }
 
-        // Add new user
         users.push({ name, email, password });
         localStorage.setItem('users', JSON.stringify(users));
-        
-        // Auto login
         localStorage.setItem('currentUser', JSON.stringify({ name, email }));
         
         showNotification('Account created successfully!');
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirect = urlParams.get('redirect');
+        
         setTimeout(() => {
-            window.location.href = '/';
+            window.location.href = redirect || '/';
         }, 1500);
     });
 
